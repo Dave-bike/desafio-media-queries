@@ -4,25 +4,43 @@
 }
 
 body {
-    padding: 0;
-    border: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* GRID AREA MOBILE */
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "aside"
+    "nav"
+    "main"
+    "footer";
+  grid-template-columns: 1fr 1fr 10fr 1fr;
 }
 
 aside {
-    grid-area: aside;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 10px;
-    padding-top: 2.5vh;
-    padding-bottom: 2.5vh;
-    color: white;
-    background-color: black;
-    text-align: center;
+  grid-area: aside;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 10px;
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+  color: white;
+  background-color: black;
+  text-align: center;
+  width: 100vw;
+}
+
+.menu-list {
+  display: none;
 }
 
 nav {
   grid-area: nav;
+  width: 100vw;
   background-color: rgb(209, 204, 204);
   display: flex;
   flex-direction: column;
@@ -38,25 +56,162 @@ nav {
 
 main {
   grid-area: main;
-  grid-template-rows: auto;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  width: 100vw;
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid black;
   text-align: center;
-  
+  padding: 0 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.imagecard {
+  height: 12em;
+}
+
+.card-tablet {
+  display: none;
+}
+
+.card-desktop {
+  display: none;
 }
 
 .more {
   background-color: black;
   color: white;
   width: 120px;
+}
+
+.more:hover {
+  background-color: green;
+}
+
+.title {
+  padding-top: 0.5em;
+}
+
+footer {
+  grid-area: footer;
+  width: 100vw;
+  background-image: url(../img/galaxy.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+}
+
+/* GRID AREA TABLET*/
+
+@media (min-width: 576px) {
+  .grid-container {
+    grid-template-areas:
+      "aside aside aside"
+      "nav main main"
+      "footer footer footer";
+  }
+  aside {
+    width: 100vw;
+  }
+  nav {
+    width: 20vw;
+  }
+  main {
+    width: 80vw;
+  }
+  footer {
+    width: 100vw;
+  }
+  .motorcycle {
+    display: grid;
+  }
+  .menu {
+    display: none;
+  }
+  .menu-list {
+    display: flex;
+    gap: 0.4em;
+  }
+  .list-item:hover {
+    color: aqua;
+  }
+  #cars {
+    width: 16vw;
+  }
+  .card-mobile {
+    display: none;
+  }
+  .card-tablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    margin: 1em;
+  }
+  .card-desktop {
+    display: none;
+  }
 
 }
 
-.pagination {
-  display: flex;
-  flex-direction: row;
+/* GRID AREA DESKTOP */
+
+@media (min-width: 992px) {
+  .grid-container {
+    grid-template-areas:
+      "aside nav"
+      "aside main"
+      "footer main";
+  }
+  aside {
+    width: 18.6vw;
+    flex-direction: column;
+    justify-content: start;
+  }
+  nav {
+    width: 80vw;
+  }
+  main {
+    width: 80vw;
+  }
+  .motorcycle {
+    display: grid;
+  }
+  footer {
+    width: 18.6vw;
+  }
+  .menu {
+    display: none;
+  }
+  .head-title {
+    padding-top: 1em;
+  }
+  .menu-list {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2.5em;
+  }
+  .list-item:hover {
+    color: aqua;
+  }
+  #cars {
+    width: 76vw;
+  }
+  .card-mobile {
+    display: none;
+  }
+  .card-tablet {
+    display: none;
+  }
+  .card-desktop {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+    margin: 1em;
+  }
 }
